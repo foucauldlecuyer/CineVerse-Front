@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
 
 const fakeMovies = [
-  { id: "1", title: "Inception", mainActorId: "101", mainActor: "Leonardo DiCaprio" },
-  { id: "2", title: "Interstellar", mainActorId: "102", mainActor: "Matthew McConaughey" },
+  {
+    id: "1",
+    title: "Inception",
+    mainActorId: "101",
+    mainActor: "Leonardo DiCaprio",
+  },
+  {
+    id: "2",
+    title: "Interstellar",
+    mainActorId: "102",
+    mainActor: "Matthew McConaughey",
+  },
 ];
 
 export default function HomePage() {
@@ -12,13 +22,12 @@ export default function HomePage() {
       <p>Bienvenue ! Choisis un film :</p>
 
       <ul>
-        {fakeMovies.map(m => (
+        {fakeMovies.map((m) => (
           <li key={m.id}>
             <Link to={`/movie/${m.id}`}>{m.title}</Link>
             {" — "}
             <small>
-              avec{" "}
-              <Link to={`/actor/${m.mainActorId}`}>{m.mainActor}</Link>
+              avec <Link to={`/actor/${m.mainActorId}`}>{m.mainActor}</Link>
             </small>
           </li>
         ))}
