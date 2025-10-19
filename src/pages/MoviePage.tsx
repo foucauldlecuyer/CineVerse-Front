@@ -5,14 +5,26 @@ export default function MoviePage() {
 
   // Ici tu iras chercher les données du film via API avec `id`.
   // Pour l’instant on simule :
-  const movie = { id, title: "Titre du film", year: 2010, actorId: "101", actorName: "Acteur Principal" };
+  const movie = {
+    id,
+    title: "Titre du film",
+    year: 2010,
+    actorId: "101",
+    actorName: "Acteur Principal",
+  };
 
   return (
     <section>
       <h1>Détail Film</h1>
-      <p><strong>ID :</strong> {id}</p>
-      <p><strong>Titre :</strong> {movie.title}</p>
-      <p><strong>Année :</strong> {movie.year}</p>
+      <p>
+        <strong>ID :</strong> {id}
+      </p>
+      <p>
+        <strong>Titre :</strong> {movie.title}
+      </p>
+      <p>
+        <strong>Année :</strong> {movie.year}
+      </p>
       <p>
         <strong>Acteur principal :</strong>{" "}
         <Link to={`/actor/${movie.actorId}`}>{movie.actorName}</Link>
