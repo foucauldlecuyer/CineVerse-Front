@@ -1,0 +1,12 @@
+.movie-highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-highlight-img {
+  width: 90%;
+  border-radius: 20px;
+  padding: 3px;
+  background-color: var(--white);
+}

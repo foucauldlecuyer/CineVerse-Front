@@ -1,0 +1,8 @@
+.movie-details {
+  padding: 5px;
+  margin: 10px;
+  width: 90%;
+  background-color: var(--white);
+  color: var(--dark-red);
+  border-radius: 10px;
+}

@@ -1,9 +1,10 @@
 import "./Header.css";
+import logo from "../../assets/logo.png";
 
 export default function App() {
   return (
     <header className="header">
-      <img className="header-logo" src="src\assets\logo.png" alt="Logo" />
+      <img className="header-logo" src={logo} alt="Logo" />
       <form className="header-form">
         <input
           className="header-searchbar"
