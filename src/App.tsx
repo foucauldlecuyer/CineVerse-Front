@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviePage";
 import ActorPage from "./pages/ActorPage";
@@ -9,7 +9,6 @@ export default function App() {
   return (
     <>
       <Header />
-      <NavLink to="/home">Accueil</NavLink>
 
       <Routes>
         {/* rediriger la racine vers /home */}
