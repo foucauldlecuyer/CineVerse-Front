@@ -8,8 +8,8 @@ type ActorHighlightProps = {
 const ActorHighlight = ({ name, photo }: ActorHighlightProps) => {
   return (
     <div className="actor-highlight">
-      <img src={photo} alt={name} className="actor-photo" />
       <h2 className="actor-name">{name}</h2>
+      <img src={photo} alt={name} className="actor-photo" />
     </div>
   );
 };

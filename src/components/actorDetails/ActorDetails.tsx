@@ -1,23 +1,35 @@
-import { Link } from "react-router-dom";
+import MovieCard from "../movieCard/MovieCard";
 import "./ActorDetails.css";
 
+type Movie = {
+  id: number;
+  title: string;
+  poster: string;
+  year?: number;
+  description?: string;
+};
+
 type ActorDetailsProps = {
-  knownFor: { title: string; id: number }[];
+  knownFor: Movie[];
 };
 
 const ActorDetails = ({ knownFor }: ActorDetailsProps) => {
+  if (knownFor.length === 0) return <p>Aucun film trouvé pour cet acteur.</p>;
+
   return (
     <div className="actor-details">
-      <h3>Connu pour :</h3>
-      <ul>
+      <h3>Filmographie :</h3>
+      <div className="actor-movies-grid">
         {knownFor.map((movie) => (
-          <li key={movie.id}>
-            <Link to={`/movie/${movie.id}`} className="actor-movie-link">
-              {movie.title}
-            </Link>
-          </li>
+          <MovieCard
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            poster={movie.poster}
+            year={movie.year}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

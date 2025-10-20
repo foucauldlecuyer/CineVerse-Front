@@ -1,4 +1,5 @@
-.movie-detail-container {
+.movie-detail-container,
+.actor-page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
