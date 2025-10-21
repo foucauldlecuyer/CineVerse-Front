@@ -1,15 +1,13 @@
 import "./ActorHighlight.css";
 
 type ActorHighlightProps = {
-  name: string;
   photo: string;
 };
 
-const ActorHighlight = ({ name, photo }: ActorHighlightProps) => {
+const ActorHighlight = ({ photo }: ActorHighlightProps) => {
   return (
     <div className="actor-highlight">
-      <h2 className="actor-name">{name}</h2>
-      <img src={photo} alt={name} className="actor-highlight-img" />
+      <img src={photo} alt="" className="actor-highlight-img" />
     </div>
   );
 };
