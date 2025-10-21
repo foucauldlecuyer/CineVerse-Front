@@ -1,0 +1,10 @@
+.actor-highlight-img {
+  width: 90%;
+  border-radius: 20px;
+  padding: 3px;
+  background-color: var(--white);
+}
+
+.actor-name {
+  text-align: center;
+}

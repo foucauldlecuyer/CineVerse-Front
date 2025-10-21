@@ -1,26 +1,35 @@
-import { Link, useParams } from "react-router-dom";
+import "./Pages.css";
+import { useParams, Link } from "react-router-dom";
+import MovieHighlight from "../components/movieHighlight/movieHighlight";
+import MovieDetails from "../components/movieDetails/MovieDetails";
+import MovieSimilarList from "../components/movieSimilarList/MovieSimilarList";
+import { fakeMovies } from "../fakeMovies";
 
-export default function MoviePage() {
-  const { id } = useParams<{ id: string }>();
+const MoviePage = () => {
+  const { id } = useParams();
+  const movie = fakeMovies.find((m) => m.id === parseInt(id || "0"));
 
-  // Ici tu iras chercher les données du film via API avec `id`.
-  // Pour l’instant on simule :
-  const movie = { id, title: "Titre du film", year: 2010, actorId: "101", actorName: "Acteur Principal" };
+  if (!movie) return <p>Film introuvable.</p>;
 
   return (
-    <section>
-      <h1>Détail Film</h1>
-      <p><strong>ID :</strong> {id}</p>
-      <p><strong>Titre :</strong> {movie.title}</p>
-      <p><strong>Année :</strong> {movie.year}</p>
-      <p>
-        <strong>Acteur principal :</strong>{" "}
-        <Link to={`/actor/${movie.actorId}`}>{movie.actorName}</Link>
-      </p>
-
-      <p style={{ marginTop: 24 }}>
-        <Link to="/home">← Retour à l’accueil</Link>
-      </p>
-    </section>
+    <div className="movie-detail-container">
+      <MovieHighlight title={movie.title} poster={movie.poster} />
+      <MovieDetails
+        year={movie.year}
+        genre={movie.genre}
+        description={movie.description}
+        actors={movie.actors}
+      />
+      <MovieSimilarList
+        currentMovieId={movie.id}
+        genre={movie.genre}
+        allMovies={fakeMovies}
+      />
+      <Link to="/" className="back-button">
+        ← Retour
+      </Link>
+    </div>
   );
-}
+};
+
+export default MoviePage;

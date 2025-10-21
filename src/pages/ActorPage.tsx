@@ -1,21 +1,44 @@
-import { Link, useParams } from "react-router-dom";
+import "./Pages.css";
+import { useParams, Link } from "react-router-dom";
+import { fakeMovies } from "../fakeMovies";
+import ActorHighlight from "../components/actorHighlight/ActorHighlight";
+import ActorDetails from "../components/actorDetails/ActorDetails";
 
 export default function ActorPage() {
   const { id } = useParams<{ id: string }>();
+  const actorId = parseInt(id!);
 
-  // Simu de données acteur
-  const actor = { id, name: "Nom de l’acteur", knownFor: ["Film A", "Film B"] };
+  // Trouver l'acteur et ses films
+  let actor: { id: number; name: string; photo: string } | undefined;
+
+  // Récupérer les films connus avec toutes les infos pour MovieCard
+  const knownFor = fakeMovies
+    .filter((movie) =>
+      movie.actors.some((a) => {
+        if (a.id === actorId) {
+          actor = a; // on récupère l'acteur ici
+          return true;
+        }
+        return false;
+      })
+    )
+    .map((movie) => ({
+      id: movie.id,
+      title: movie.title,
+      poster: movie.poster,
+      year: movie.year,
+      description: movie.description,
+    }));
+
+  if (!actor) return <p>Acteur introuvable.</p>;
 
   return (
-    <section>
-      <h1>Détail Acteur</h1>
-      <p><strong>ID :</strong> {id}</p>
-      <p><strong>Nom :</strong> {actor.name}</p>
-      <p><strong>Connu pour :</strong> {actor.knownFor.join(", ")}</p>
-
-      <p style={{ marginTop: 24 }}>
-        <Link to="/home">← Retour à l’accueil</Link>
-      </p>
+    <section className="actor-page-container">
+      <ActorHighlight name={actor.name} photo={actor.photo} />
+      <ActorDetails knownFor={knownFor} />
+      <Link to="/" className="back-button">
+        ← Retour à la liste des films
+      </Link>
     </section>
   );
 }

@@ -1,14 +1,15 @@
-import { Routes, Route, NavLink, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviePage";
 import ActorPage from "./pages/ActorPage";
+import Header from "./components/header/Header";
+import "./App.css";
+import Footer from "./components/footer/Footer";
 
 export default function App() {
   return (
-    <div style={{ maxWidth: 960, margin: "0 auto", padding: 16 }}>
-      <nav style={{ display: "flex", gap: 12, marginBottom: 16 }}>
-        <NavLink to="/home">Accueil</NavLink>
-      </nav>
+    <>
+      <Header />
 
       <Routes>
         {/* rediriger la racine vers /home */}
@@ -22,6 +23,7 @@ export default function App() {
         {/* 404 */}
         <Route path="*" element={<div>Page introuvable</div>} />
       </Routes>
-    </div>
+      <Footer />
+    </>
   );
 }
