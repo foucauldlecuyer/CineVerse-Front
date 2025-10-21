@@ -1,3 +1,7 @@
-.movie-similar-list {
+.movie-similarlist {
   margin-left: 1rem;
+}
+
+.movie-similarlist-title {
+  text-align: center;
 }

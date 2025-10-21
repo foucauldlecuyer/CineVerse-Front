@@ -18,7 +18,7 @@ const ActorDetails = ({ knownFor }: ActorDetailsProps) => {
 
   return (
     <div className="actor-details">
-      <h3>Filmographie :</h3>
+      <h3 className="actor-details-title">Filmographie :</h3>
       <div className="actor-movies-grid">
         {knownFor.map((movie) => (
           <MovieCard

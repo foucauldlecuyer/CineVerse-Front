@@ -4,3 +4,7 @@
   padding: 3px;
   background-color: var(--white);
 }
+
+.actor-name {
+  text-align: center;
+}

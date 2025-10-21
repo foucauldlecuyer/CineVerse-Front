@@ -1,4 +1,7 @@
-import posterImg from "./assets/exemple.jpg";
+import inception from "./assets/inception.jpg";
+import batman from "./assets/batman.jpg";
+import parasite from "./assets/parasite.jpg";
+import interstellar from "./assets/interstellar.jpg";
 import actorImg from "./assets/actorExemple.png";
 
 export const fakeMovies = [
@@ -8,7 +11,7 @@ export const fakeMovies = [
     year: 2010,
     genre: "Science Fiction",
     description: "Un voleur infiltre les rêves pour dérober des secrets.",
-    poster: posterImg,
+    poster: inception,
     actors: [
       { id: 1, name: "Leonardo DiCaprio", photo: actorImg },
       { id: 2, name: "Joseph Gordon-Levitt", photo: actorImg },
@@ -22,7 +25,7 @@ export const fakeMovies = [
     genre: "Action",
     description:
       "Batman affronte le Joker dans un Gotham plongé dans le chaos.",
-    poster: posterImg,
+    poster: batman,
     actors: [
       { id: 4, name: "Christian Bale", photo: actorImg },
       { id: 5, name: "Heath Ledger", photo: actorImg },
@@ -36,7 +39,7 @@ export const fakeMovies = [
     genre: "Science Fiction",
     description:
       "Des astronautes explorent un trou de ver pour sauver l’humanité.",
-    poster: posterImg,
+    poster: interstellar,
     actors: [
       { id: 7, name: "Matthew McConaughey", photo: actorImg },
       { id: 8, name: "Anne Hathaway", photo: actorImg },
@@ -50,7 +53,7 @@ export const fakeMovies = [
     genre: "Thriller",
     description:
       "Une famille pauvre s’infiltre dans la vie d’une famille aisée.",
-    poster: posterImg,
+    poster: parasite,
     actors: [
       { id: 10, name: "Song Kang-ho", photo: actorImg },
       { id: 11, name: "Lee Sun-kyun", photo: actorImg },

@@ -28,8 +28,8 @@ const MovieSimilarList = ({
   if (similarMovies.length === 0) return null;
 
   return (
-    <div className="movie-similar-list">
-      <h3>Films similaires</h3>
+    <div className="movie-similarlist">
+      <h3 className="movie-similarlist-title">Films similaires</h3>
       <div className="similar-movies-grid">
         {similarMovies.map((movie) => (
           <MovieCard

@@ -7,6 +7,8 @@
   padding: 5px;
   margin: 10px;
   width: 40%;
+  max-width: 300px;
+  max-height: 435px;
   transition: transform 0.2s;
 }
 
@@ -24,10 +26,9 @@
   font-size: 1rem;
   margin: 5px 0 0px 0;
   text-align: center;
-  color: var(--grey);
+  color: var(--background);
   text-decoration: none;
   width: 100%;
-  background-color: var(--background);
-  padding: 4px;
+  padding: 2px;
   border-radius: 10px;
 }
