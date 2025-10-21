@@ -1,7 +1,6 @@
 import "./Pages.css";
 import { useParams, Link } from "react-router-dom";
 import { fakeMovies } from "../fakeMovies";
-import ActorHighlight from "../components/actorHighlight/ActorHighlight";
 import ActorDetails from "../components/actorDetails/ActorDetails";
 import ActorFilmography from "../components/actorFilmography/ActorFilmography";
 
@@ -43,7 +42,7 @@ export default function ActorPage() {
     <section className="actor-page-container">
       <h2 className="actor-details-name">{actor.name}</h2>
       <div className="actor-page-highlight-container">
-        <ActorHighlight photo={actor.photo} />
+        <img src={actor.photo} alt="" className="actor-highlight-img" />
         <ActorDetails actor={actor} />
       </div>
       <ActorFilmography movies={knownFor} />

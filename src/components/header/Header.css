@@ -39,6 +39,7 @@ header::after {
   border: none;
   text-align: center;
   margin: 0 auto;
+  font-size: 1.2rem;
 }
 
 .search-results {
@@ -64,16 +65,22 @@ header::after {
   display: block;
   padding: 8px 12px;
   text-decoration: none;
-  color: var(--background);
+  color: var(--dark);
   transition: background 0.2s;
 }
 
 .search-result-item:hover {
-  background-color: #eee;
+  background-color: var(--white);
 }
 
 .result-type {
   font-size: 0.8rem;
   color: var(--dark-red);
   margin-left: 8px;
+}
+
+@media (max-width: 480px) {
+  .header-searchbar {
+    font-size: 0.8rem;
+  }
 }

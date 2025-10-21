@@ -16,13 +16,13 @@ const MovieDetails = ({
 }: MovieDetailsProps) => {
   return (
     <div className="movie-details">
-      <p className="movie-details-description">{description}</p>
       <p>
         <strong>Année :</strong> {year}
       </p>
       <p>
         <strong>Genre :</strong> {genre}
       </p>
+      <p className="movie-details-description">{description}</p>
       <h3>Acteurs :</h3>
       <ul>
         {actors.map((actor) => (
