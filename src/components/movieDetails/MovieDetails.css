@@ -1,9 +1,17 @@
 .movie-details {
   padding: 5px;
-  margin: 10px;
+  margin-left: 10px;
   width: 90%;
   max-width: 320px;
   background-color: var(--white);
   color: var(--dark-red);
+  border: solid 2px var(--grey);
   border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+  .movie-details {
+    width: 100%;
+    margin: 10px 0 0 0;
+  }
 }

@@ -21,7 +21,6 @@ export default function Header() {
 
     const lower = value.toLowerCase();
 
-    // Rechercher dans films et acteurs
     const movieMatches = fakeMovies
       .filter((m) => m.title.toLowerCase().includes(lower))
       .map((m) => ({

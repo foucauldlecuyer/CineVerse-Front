@@ -8,15 +8,13 @@ export default function ActorPage() {
   const { id } = useParams<{ id: string }>();
   const actorId = parseInt(id!);
 
-  // Trouver l'acteur et ses films
   let actor: { id: number; name: string; photo: string } | undefined;
 
-  // Récupérer les films connus avec toutes les infos pour MovieCard
   const knownFor = fakeMovies
     .filter((movie) =>
       movie.actors.some((a) => {
         if (a.id === actorId) {
-          actor = a; // on récupère l'acteur ici
+          actor = a;
           return true;
         }
         return false;

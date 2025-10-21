@@ -3,6 +3,7 @@
   bottom: 0px;
   width: 100%;
   background-color: var(--background);
+  text-align: center;
 }
 
 .footer::before {

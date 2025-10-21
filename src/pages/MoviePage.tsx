@@ -13,13 +13,16 @@ const MoviePage = () => {
 
   return (
     <div className="movie-detail-container">
-      <MovieHighlight title={movie.title} poster={movie.poster} />
-      <MovieDetails
-        year={movie.year}
-        genre={movie.genre}
-        description={movie.description}
-        actors={movie.actors}
-      />
+      <h2 className="movie-highlight-title">{movie.title}</h2>
+      <div className="movie-detail-highlight-container">
+        <MovieHighlight title={movie.title} poster={movie.poster} />
+        <MovieDetails
+          year={movie.year}
+          genre={movie.genre}
+          description={movie.description}
+          actors={movie.actors}
+        />
+      </div>
       <MovieSimilarList
         currentMovieId={movie.id}
         genre={movie.genre}

@@ -11,6 +11,11 @@
   box-shadow: 0px 10px 15px 1px #660708;
 }
 
+.movie-detail-highlight-container {
+  display: flex;
+  width: 95%;
+}
+
 .back-button {
   margin: 1rem;
   text-decoration: none;
@@ -19,4 +24,10 @@
   border: 2px solid var(--dark-red);
   border-radius: 5px;
   padding: 5px 10px;
+}
+
+@media (max-width: 480px) {
+  .movie-detail-highlight-container {
+    flex-direction: column;
+  }
 }
