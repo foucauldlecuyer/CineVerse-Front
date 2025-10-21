@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(148, 148, 148, 0.1);
+  background-color: var(--grey);
+  border-radius: 15px;
   padding: 5px;
   margin: 10px;
   width: 40%;
@@ -17,10 +17,17 @@
 
 .movie-card-img {
   width: 100%;
+  border-radius: 15px;
 }
 
 .movie-card-title {
   font-size: 1rem;
-  margin: 10px 0 5px 0;
+  margin: 5px 0 0px 0;
   text-align: center;
+  color: var(--grey);
+  text-decoration: none;
+  width: 100%;
+  background-color: var(--background);
+  padding: 4px;
+  border-radius: 10px;
 }

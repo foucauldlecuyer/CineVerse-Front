@@ -1,4 +1,4 @@
-import "./MoviePage.css";
+import "./Pages.css";
 import { useParams, Link } from "react-router-dom";
 import { fakeMovies } from "../fakeMovies";
 import ActorHighlight from "../components/actorHighlight/ActorHighlight";

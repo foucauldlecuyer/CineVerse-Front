@@ -4,6 +4,7 @@ import MoviePage from "./pages/MoviePage";
 import ActorPage from "./pages/ActorPage";
 import Header from "./components/header/Header";
 import "./App.css";
+import Footer from "./components/footer/Footer";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         {/* 404 */}
         <Route path="*" element={<div>Page introuvable</div>} />
       </Routes>
+      <Footer />
     </>
   );
 }
