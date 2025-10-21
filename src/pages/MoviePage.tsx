@@ -12,14 +12,17 @@ const MoviePage = () => {
   if (!movie) return <p>Film introuvable.</p>;
 
   return (
-    <div className="movie-detail-container">
-      <MovieHighlight title={movie.title} poster={movie.poster} />
-      <MovieDetails
-        year={movie.year}
-        genre={movie.genre}
-        description={movie.description}
-        actors={movie.actors}
-      />
+    <div className="movie-page-container">
+      <h2 className="movie-highlight-title">{movie.title}</h2>
+      <div className="movie-page-highlight-container">
+        <MovieHighlight poster={movie.poster} />
+        <MovieDetails
+          year={movie.year}
+          genre={movie.genre}
+          description={movie.description}
+          actors={movie.actors}
+        />
+      </div>
       <MovieSimilarList
         currentMovieId={movie.id}
         genre={movie.genre}

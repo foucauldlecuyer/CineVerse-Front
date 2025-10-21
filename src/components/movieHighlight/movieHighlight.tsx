@@ -1,16 +1,9 @@
 import "./movieHighlight.css";
 
-const MovieHighlight = ({
-  title,
-  poster,
-}: {
-  title: string;
-  poster: string;
-}) => {
+const MovieHighlight = ({ poster }: { poster: string }) => {
   return (
     <div className="movie-highlight">
-      <h2 className="movie-highlight-title">{title}</h2>
-      <img src={poster} alt={title} className="movie-highlight-img" />
+      <img src={poster} alt="" className="movie-highlight-img" />
     </div>
   );
 };

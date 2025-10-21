@@ -3,20 +3,28 @@ import { useParams, Link } from "react-router-dom";
 import { fakeMovies } from "../fakeMovies";
 import ActorHighlight from "../components/actorHighlight/ActorHighlight";
 import ActorDetails from "../components/actorDetails/ActorDetails";
+import ActorFilmography from "../components/actorFilmography/ActorFilmography";
 
 export default function ActorPage() {
   const { id } = useParams<{ id: string }>();
   const actorId = parseInt(id!);
 
-  // Trouver l'acteur et ses films
-  let actor: { id: number; name: string; photo: string } | undefined;
+  let actor:
+    | {
+        id: number;
+        name: string;
+        photo: string;
+        bio?: string;
+        nationality?: string;
+        birthYear?: number;
+      }
+    | undefined;
 
-  // Récupérer les films connus avec toutes les infos pour MovieCard
   const knownFor = fakeMovies
     .filter((movie) =>
       movie.actors.some((a) => {
         if (a.id === actorId) {
-          actor = a; // on récupère l'acteur ici
+          actor = a;
           return true;
         }
         return false;
@@ -27,15 +35,19 @@ export default function ActorPage() {
       title: movie.title,
       poster: movie.poster,
       year: movie.year,
-      description: movie.description,
     }));
 
   if (!actor) return <p>Acteur introuvable.</p>;
 
   return (
     <section className="actor-page-container">
-      <ActorHighlight name={actor.name} photo={actor.photo} />
-      <ActorDetails knownFor={knownFor} />
+      <h2 className="actor-details-name">{actor.name}</h2>
+      <div className="actor-page-highlight-container">
+        <ActorHighlight photo={actor.photo} />
+        <ActorDetails actor={actor} />
+      </div>
+      <ActorFilmography movies={knownFor} />
+
       <Link to="/" className="back-button">
         ← Retour à la liste des films
       </Link>
