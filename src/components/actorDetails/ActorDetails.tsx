@@ -5,7 +5,8 @@ type Actor = {
   photo: string;
   bio?: string;
   nationality?: string;
-  birthYear?: number;
+  birthDate?: string; // yyyy-mm-dd
+  deathDate?: string; // yyyy-mm-dd
 };
 
 type ActorDetailsProps = {
@@ -14,21 +15,24 @@ type ActorDetailsProps = {
 
 const ActorDetails = ({ actor }: ActorDetailsProps) => {
   return (
-    <>
-      <div className="actor-details">
-        {actor.birthYear && (
-          <p>
-            <strong>Année de naissance :</strong> {actor.birthYear}
-          </p>
-        )}
-        {actor.nationality && (
-          <p>
-            <strong>Nationalité :</strong> {actor.nationality}
-          </p>
-        )}
-        {actor.bio && <p className="actor-details-bio">{actor.bio}</p>}
-      </div>
-    </>
+    <div className="actor-details">
+      {actor.birthDate && (
+        <p>
+          <strong>Date de naissance :</strong> {actor.birthDate}
+        </p>
+      )}
+      {actor.deathDate && (
+        <p>
+          <strong>Date de décès :</strong> {actor.deathDate}
+        </p>
+      )}
+      {actor.nationality && (
+        <p>
+          <strong>Lieu de naissance :</strong> {actor.nationality}
+        </p>
+      )}
+      {actor.bio && <p className="actor-details-bio">{actor.bio}</p>}
+    </div>
   );
 };
 

@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { getActorByTMDBId } from "../api/actors";
 import "./Pages.css";
 import type { StrapiActor } from "../api/actors";
+import ActorDetails from "../components/actorDetails/ActorDetails";
 
 export default function ActorPage() {
   const { id } = useParams<{ id: string }>();
@@ -30,29 +31,38 @@ export default function ActorPage() {
   if (!actor) return <p>Acteur introuvable.</p>;
 
   return (
-    <section className="actor-page-container">
-      <h1>
+    <div className="actor-page-container">
+      <h2 className="actor-details-name">
         {actor.first_name} {actor.last_name}
-      </h1>
-      <img
-        src={
-          actor.profile_path
-            ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
-            : "/placeholder.jpg"
-        }
-        alt={`${actor.first_name} ${actor.last_name}`}
-      />
-      <p>
-        <strong>Birthday:</strong> {actor.birthday || "Unknown"}
-      </p>
-      <p>
-        <strong>Place of birth:</strong> {actor.place_of_birth || "Unknown"}
-      </p>
-      <p>{actor.biography || "No biography available."}</p>
+      </h2>
+
+      <div className="actor-page-highlight-container">
+        <img
+          src={
+            actor.profile_path
+              ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
+              : ""
+          }
+          alt={`${actor.first_name} ${actor.last_name}`}
+          className="actor-highlight-img"
+        />
+        <ActorDetails
+          actor={{
+            name: `${actor.first_name ?? ""} ${actor.last_name ?? ""}`,
+            photo: actor.profile_path
+              ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
+              : "",
+            bio: actor.biography || undefined,
+            nationality: actor.place_of_birth || undefined,
+            birthDate: actor.birthday || undefined,
+            deathDate: actor.deathday || undefined,
+          }}
+        />
+      </div>
 
       <Link to="/" className="back-button">
         ← Retour à l'accueil
       </Link>
-    </section>
+    </div>
   );
 }

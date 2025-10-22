@@ -41,6 +41,9 @@
   width: 40%;
   min-width: 300px;
   max-width: 500px;
+  border-radius: 10px;
+  background-color: var(--grey);
+  padding: 5px;
 }
 
 @media (max-width: 480px) {
