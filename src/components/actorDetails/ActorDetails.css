@@ -2,6 +2,27 @@
   margin-left: 1rem;
 }
 
-.actor-details-title {
+.actor-details {
+  padding: 5px;
+  margin-left: 10px;
+  width: 90%;
+  max-width: 450px;
+  background-color: var(--white);
+  color: var(--dark-red);
+  border: solid 2px var(--grey);
+  border-radius: 10px;
+  height: 100%;
+  font-size: 1.2rem;
+}
+
+.actor-details-film {
   text-align: center;
+}
+
+@media (max-width: 480px) {
+  .actor-details {
+    width: 66%;
+    margin: 10px 0 0 0;
+    font-size: initial;
+  }
 }
