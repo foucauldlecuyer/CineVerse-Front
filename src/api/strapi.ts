@@ -1,5 +1,6 @@
 export const BASE_URL =
-  import.meta.env.VITE_API_URL?.replace(/\/$/, "") || "http://localhost:1337";
+  import.meta.env.VITE_API_URL?.replace(/\/$/, "");
+  
 
 export function buildUrl(path: string, params?: Record<string, string | number | boolean | undefined>) {
   const url = new URL(path, BASE_URL);
