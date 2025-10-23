@@ -1,35 +1,37 @@
-import MovieCard from "../movieCard/MovieCard";
 import "./ActorDetails.css";
 
-type Movie = {
-  id: number;
-  title: string;
-  poster: string;
-  year?: number;
-  description?: string;
+type Actor = {
+  name: string;
+  photo: string;
+  bio?: string;
+  nationality?: string;
+  birthDate?: string; // yyyy-mm-dd
+  deathDate?: string; // yyyy-mm-dd
 };
 
 type ActorDetailsProps = {
-  knownFor: Movie[];
+  actor: Actor;
 };
 
-const ActorDetails = ({ knownFor }: ActorDetailsProps) => {
-  if (knownFor.length === 0) return <p>Aucun film trouvé pour cet acteur.</p>;
-
+const ActorDetails = ({ actor }: ActorDetailsProps) => {
   return (
     <div className="actor-details">
-      <h3 className="actor-details-title">Filmographie :</h3>
-      <div className="actor-movies-grid">
-        {knownFor.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            id={movie.id}
-            title={movie.title}
-            poster={movie.poster}
-            year={movie.year}
-          />
-        ))}
-      </div>
+      {actor.birthDate && (
+        <p>
+          <strong>Date de naissance :</strong> {actor.birthDate}
+        </p>
+      )}
+      {actor.deathDate && (
+        <p>
+          <strong>Date de décès :</strong> {actor.deathDate}
+        </p>
+      )}
+      {actor.nationality && (
+        <p>
+          <strong>Lieu de naissance :</strong> {actor.nationality}
+        </p>
+      )}
+      {actor.bio && <p className="actor-details-bio">{actor.bio}</p>}
     </div>
   );
 };

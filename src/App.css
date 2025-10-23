@@ -1,5 +1,5 @@
 :root {
-  --background: #141214;
+  --dark: #141214;
   --dark-red: #660708;
   --red: #ba181b;
   --grey: #b1a7a6;
@@ -13,7 +13,7 @@
   height: 100vh;
   width: 100%;
   margin: 0;
-  background-color: var(--background);
+  background-color: var(--dark);
   color: var(--grey);
   overflow: scroll;
 }

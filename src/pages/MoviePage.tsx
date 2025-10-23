@@ -1,6 +1,5 @@
 import "./Pages.css";
 import { useParams, Link } from "react-router-dom";
-import MovieHighlight from "../components/movieHighlight/movieHighlight";
 import MovieDetails from "../components/movieDetails/MovieDetails";
 import MovieSimilarList from "../components/movieSimilarList/MovieSimilarList";
 import { getMovieById } from "../api/movies";
