@@ -1,35 +1,17 @@
 import { buildUrl } from "./strapi";
 
-export type StrapiMovie = {
-  id: number;
-  attributes: {
-    title: string;
-    overview?: string;
-    release_date?: string;  // ISO date
-    director?: string;
-    actors?: {               // relation manyToMany
-      data: Array<{ id: number; attributes: { name: string } }>;
-    };
-    // PAS de poster ici
-  };
-};
-
-type StrapiListResponse<T> = {
-  data: T[];
-  meta: { pagination: { page: number; pageSize: number; pageCount: number; total: number } };
-};
-
-export async function getMovies(page = 1, pageSize = 12): Promise<StrapiListResponse<StrapiMovie>> {
-  const url = buildUrl("/api/movies", {
-    populate: "actors",
-    "pagination[page]": page,
-    "pagination[pageSize]": pageSize,
-    "sort": "title:asc",
-  });
+export async function getMovies() {
+  const url = buildUrl("/api/movies");
   const res = await fetch(url);
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`GET ${url} -> ${res.status} ${text}`);
-  }
-  return res.json();
+  if (!res.ok) throw new Error(`GET ${url} -> ${res.status}`);
+  const data = await res.json();
+  return data;
+}
+
+export async function getMovieById(documentId : string) {
+  const url = buildUrl(`/api/movies/${documentId}`);
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`GET ${url} -> ${res.status}`);
+  const data = await res.json();
+  return data;
 }

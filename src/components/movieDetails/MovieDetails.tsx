@@ -8,12 +8,11 @@ type MovieDetailsProps = {
   actors: { id: number; name: string; photo?: string }[];
 };
 
-const MovieDetails = ({
-  year,
-  genre,
-  description,
-  actors,
-}: MovieDetailsProps) => {
+const MovieDetails = ({movie}: MovieProps) => {
+  const description = movie.overview
+  const year = movie.release_date
+  const genre = "à importer"
+  const actors = [] // à importer
   return (
     <div className="movie-details">
       <p className="movie-details-description">{description}</p>

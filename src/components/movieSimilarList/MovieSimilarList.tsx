@@ -10,20 +10,10 @@ type Movie = {
   description?: string;
 };
 
-type MovieSimilarListProps = {
-  currentMovieId: number;
-  genre: string;
-  allMovies: Movie[];
-};
 
-const MovieSimilarList = ({
-  currentMovieId,
-  genre,
-  allMovies,
-}: MovieSimilarListProps) => {
-  const similarMovies = allMovies.filter(
-    (movie) => movie.genre === genre && movie.id !== currentMovieId
-  );
+const MovieSimilarList = ({movie}: MovieProps) => {
+  const description = movie.overview
+  const similarMovies = allMovies.filter
 
   if (similarMovies.length === 0) return null;
 
@@ -34,7 +24,7 @@ const MovieSimilarList = ({
         {similarMovies.map((movie) => (
           <MovieCard
             key={movie.id}
-            id={movie.id}
+            id={movie.documentId}
             title={movie.title}
             poster={movie.poster}
             year={movie.year}

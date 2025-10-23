@@ -1,23 +1,28 @@
 import "./MovieCard.css";
 import { Link } from "react-router-dom";
 
-type MovieType = {
-  id?: number;
-  title: string;
-  year?: number | string;
-  genre?: string;
-  poster?: string;
+type MovieCardProps = {
+  movie: {
+    id: number;
+    documentId: number;
+    title: string;
+    poster_path?: string;
+  };
 };
 
-const MovieCard = ({ id, title, poster }: MovieType) => {
+const MovieCard = ({ movie }: MovieCardProps) => {
   return (
-    <Link to={`/movie/${id}`} className="movie-card">
-      {poster ? (
-        <img src={poster} alt={title} className="movie-card-img" />
+    <Link to={`/movie/${movie.documentId}`} className="movie-card">
+      {movie.poster_path ? (
+        <img
+          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          alt={movie.title}
+          className="movie-card-img"
+        />
       ) : (
         <div className="movie-card-placeholder">Pas d'affiche</div>
       )}
-      <h2 className="movie-card-title">{title}</h2>
+      <h2 className="movie-card-title">{movie.title}</h2>
     </Link>
   );
 };
