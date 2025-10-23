@@ -3,6 +3,12 @@ import batman from "./assets/batman.jpg";
 import parasite from "./assets/parasite.jpg";
 import interstellar from "./assets/interstellar.jpg";
 import actorImg from "./assets/actor.jpg";
+import titanic from "./assets/titanic.jpg";
+import grimm from "./assets/grimm.jpg";
+import aaron from "./assets/aaron.jpg";
+import bale from "./assets/bale.jpg";
+import heath from "./assets/heath.jpg";
+import dicaprio from "./assets/dicaprio.jpg";
 
 export const fakeMovies = [
   {
@@ -16,7 +22,7 @@ export const fakeMovies = [
       {
         id: 1,
         name: "Leonardo DiCaprio",
-        photo: actorImg,
+        photo: dicaprio,
         birthYear: 1974,
         nationality: "Américain",
         bio: "Acteur oscarisé, connu pour ses rôles dans Titanic, Inception et The Revenant.",
@@ -51,7 +57,7 @@ export const fakeMovies = [
       {
         id: 4,
         name: "Christian Bale",
-        photo: actorImg,
+        photo: bale,
         birthYear: 1974,
         nationality: "Britannique",
         bio: "Acteur caméléon, célèbre pour ses transformations physiques dans ses rôles.",
@@ -59,7 +65,7 @@ export const fakeMovies = [
       {
         id: 5,
         name: "Heath Ledger",
-        photo: actorImg,
+        photo: heath,
         birthYear: 1979,
         nationality: "Australien",
         bio: "Acteur acclamé pour son interprétation légendaire du Joker.",
@@ -67,7 +73,7 @@ export const fakeMovies = [
       {
         id: 6,
         name: "Aaron Eckhart",
-        photo: actorImg,
+        photo: aaron,
         birthYear: 1968,
         nationality: "Américain",
         bio: "Acteur connu pour Thank You for Smoking et The Dark Knight.",
@@ -141,6 +147,76 @@ export const fakeMovies = [
         birthYear: 1981,
         nationality: "Sud-coréenne",
         bio: "Actrice et mannequin, célèbre pour son rôle dans Parasite.",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Titanic",
+    year: 1997,
+    genre: "Drame / Romance",
+    description:
+      "Une romance tragique entre deux passagers de classes sociales différentes à bord du célèbre paquebot.",
+    poster: titanic,
+    actors: [
+      {
+        id: 1,
+        name: "Leonardo DiCaprio",
+        photo: dicaprio,
+        birthYear: 1974,
+        nationality: "Américain",
+        bio: "Acteur oscarisé, connu pour ses rôles dans Titanic, Inception et The Revenant.",
+      },
+      {
+        id: 14,
+        name: "Kate Winslet",
+        photo: actorImg,
+        birthYear: 1975,
+        nationality: "Britannique",
+        bio: "Actrice reconnue pour Titanic, The Reader et Eternal Sunshine of the Spotless Mind.",
+      },
+      {
+        id: 15,
+        name: "Billy Zane",
+        photo: actorImg,
+        birthYear: 1966,
+        nationality: "Américain",
+        bio: "Connu pour son rôle de Cal Hockley dans Titanic et dans la série The Phantom.",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Les Frères Grimm",
+    year: 2005,
+    genre: "Fantastique / Aventure",
+    description:
+      "Deux frères escrocs sont contraints d'affronter une véritable malédiction dans une forêt enchantée.",
+    poster: grimm,
+    actors: [
+      {
+        id: 16,
+        name: "Matt Damon",
+        photo: actorImg,
+        birthYear: 1970,
+        nationality: "Américain",
+        bio: "Acteur et scénariste, célèbre pour la série Jason Bourne, Good Will Hunting et Seul sur Mars.",
+      },
+      {
+        id: 5,
+        name: "Heath Ledger",
+        photo: heath,
+        birthYear: 1979,
+        nationality: "Australien",
+        bio: "Acteur acclamé pour son interprétation légendaire du Joker.",
+      },
+      {
+        id: 18,
+        name: "Lena Headey",
+        photo: actorImg,
+        birthYear: 1973,
+        nationality: "Britannique",
+        bio: "Actrice célèbre pour son rôle de Cersei Lannister dans Game of Thrones et dans 300.",
       },
     ],
   },

@@ -9,4 +9,5 @@
   justify-content: center;
   max-height: 300px;
   overflow: scroll;
+  max-width: 350px;
 }
