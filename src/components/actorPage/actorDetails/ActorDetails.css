@@ -1,0 +1,33 @@
+.actor-details {
+  margin-left: 1rem;
+  padding: 5px;
+  margin-left: 10px;
+  width: 90%;
+  max-width: 450px;
+  background-color: var(--white);
+  color: var(--dark-red);
+  border: solid 2px var(--grey);
+  border-radius: 10px;
+  height: 98%;
+  font-size: 1.2rem;
+}
+
+.actor-details-film {
+  text-align: center;
+}
+
+.actor-details-bio {
+  border: solid 2px var(--grey);
+  border-radius: 10px;
+  padding: 10px;
+  max-height: 380px;
+  overflow: scroll;
+}
+
+@media (max-width: 480px) {
+  .actor-details {
+    width: 63%;
+    margin: 10px 0 0 0;
+    font-size: initial;
+  }
+}

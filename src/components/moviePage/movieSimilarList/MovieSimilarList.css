@@ -1,0 +1,12 @@
+.similar-movies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 300px;
+  overflow: scroll;
+}
+
+.movie-similarlist-title {
+  text-align: center;
+  font-size: 1.8rem;
+}

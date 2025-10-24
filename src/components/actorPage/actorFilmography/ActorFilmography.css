@@ -1,0 +1,12 @@
+.actor-filmography-title {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.actor-filmography-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 300px;
+  overflow: scroll;
+}

@@ -17,7 +17,7 @@ export default function App() {
 
         {/* pages */}
         <Route path="/home" element={<HomePage />} />
-        <Route path="/movie/:id" element={<MoviePage />} />
+        <Route path="/movie/:documentId" element={<MoviePage />} />
         <Route path="/actor/:id" element={<ActorPage />} />
 
         {/* 404 */}
