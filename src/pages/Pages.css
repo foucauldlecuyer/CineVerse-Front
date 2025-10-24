@@ -52,3 +52,9 @@
     flex-direction: column;
   }
 }
+
+@media screen and (min-width: 480px) {
+  .movie-container {
+    display: flex;
+  }
+}

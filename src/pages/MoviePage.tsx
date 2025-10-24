@@ -1,6 +1,6 @@
 import "./Pages.css";
 import { useParams, Link } from "react-router-dom";
-import MovieHighlight from "../components/movieHighlight/movieHighlight"
+import MovieHighlight from "../components/movieHighlight/movieHighlight";
 import MovieDetails from "../components/movieDetails/MovieDetails";
 import MovieSimilarList from "../components/movieSimilarList/MovieSimilarList";
 import { getMovieById } from "../api/movies";
@@ -8,25 +8,17 @@ import { useEffect, useState } from "react";
 
 export type MovieProps = {
   movie: {
-    "id": number,
-    "documentId": string,
-    "title": string,
-    "release_date": string,
-    "director": null,
-    "id_movie": string,
-    "createdAt": string,
-    "updatedAt": string,
-    "publishedAt": string,
-    "overview": string,
-    "poster_path": string
-  },
+    id: number;
+    title: string;
+    overview: string;
+    release_date: string;
+    director?: string | null;
+    actors?: any;
+  };
 };
 
 const MoviePage = () => {
-  // récupérer le bon nom de paramètre — ici on suppose "documentId"
   const { documentId } = useParams<{ documentId?: string }>();
-  console.log("MoviePage documentId param:", documentId);
-
   const [movie, setMovie] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState<string | null>(null);
@@ -41,7 +33,7 @@ const MoviePage = () => {
     (async () => {
       try {
         const res = await getMovieById(documentId);
-        setMovie(res?.data);
+        setMovie(res?.data?.attributes ?? res?.data); // ✅ Strapi consistency fix
       } catch (e: unknown) {
         setErr(e instanceof Error ? e.message : "Erreur inconnue");
       } finally {
@@ -56,8 +48,10 @@ const MoviePage = () => {
 
   return (
     <div className="movie-detail-container">
-      <MovieHighlight movie={movie} />
-      <MovieDetails movie={movie} />
+      <div className="movie-container">
+        <MovieHighlight movie={movie} />
+        <MovieDetails movie={movie} />
+      </div>
       <MovieSimilarList />
       <Link to="/" className="back-button">
         ← Retour

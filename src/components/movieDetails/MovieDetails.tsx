@@ -1,25 +1,32 @@
 import "./MovieDetails.css";
 import { Link } from "react-router-dom";
+import type { MovieProps } from "../../pages/MoviePage";
 
-type MovieDetailsProps = {
-  year: number;
-  genre: string;
-  description: string;
-  actors: { id: number; name: string; photo?: string }[];
-};
+const MovieDetails = ({ movie }: MovieProps) => {
+  const title = movie.title;
+  const description = movie.overview;
+  const year = movie.release_date;
+  const genre = "À importer"; // placeholder
+  const director = movie.director;
 
-const MovieDetails = ({movie}: MovieProps) => {
-  const title = movie.title
-  const description = movie.overview
-  console.log("description:", description);
-  const year = movie.release_date
-  const genre = "à importer"
-  const actors = [ "à importer", "à importer"] // à importer
-  const director = movie.director
+  // ✅ Conversion propre des acteurs Strapi → Front
+  const actors =
+    movie.actors?.data?.map((a: any) => ({
+      id: a.id,
+      name: `${a.attributes.first_name ?? ""} ${
+        a.attributes.last_name ?? ""
+      }`.trim(),
+      photo: a.attributes.profile_path
+        ? `https://image.tmdb.org/t/p/w200${a.attributes.profile_path}`
+        : undefined,
+    })) ?? [];
+
   return (
+    <div className="movies-container">
+
     <div className="movie-details">
       <p>
-        <strong>Titre : {title} </strong> 
+        <strong>Titre :</strong> {title}
         <br />
         <br />
         <strong>Réalisateur :</strong> {director || "Inconnu"}
@@ -30,22 +37,27 @@ const MovieDetails = ({movie}: MovieProps) => {
         <br />
         <strong>Genre :</strong> {genre}
       </p>
+
       <p className="movie-details-description">{description}</p>
-      <p >
-        <strong >Acteurs :</strong></p>
-      <ul>
-        {actors.map((actor) => (
-          <li key={actor.id} className="actor-item">
-            <Link to={`/actor/${actor.id}`} className="actor-link">
-              {actor.name}
-            </Link>
-          </li>
-        ))}
-      </ul>
+
       <p>
-        <strong>Description :</strong> {description}
+        <strong>Acteurs :</strong>
       </p>
+      <ul>
+        {actors.length > 0 ? (
+          actors.map((actor) => (
+            <li key={actor.id} className="actor-item">
+              <Link to={`/actor/${actor.id}`} className="actor-link">
+                {actor.name}
+              </Link>
+            </li>
+          ))
+        ) : (
+          <li>Aucun acteur renseigné</li>
+        )}
+      </ul>
     </div>
+        </div>
   );
 };
 
