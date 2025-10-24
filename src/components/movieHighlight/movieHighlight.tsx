@@ -1,4 +1,3 @@
-import "./movieHighlight.css";
 import type { MovieProps } from "../../pages/MoviePage";
 
 const MovieHighlight = ({movie}: MovieProps) => {

@@ -1,0 +1,34 @@
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--grey);
+  border-radius: 15px;
+  padding: 5px;
+  margin: 10px;
+  width: 40%;
+  max-width: 300px;
+  max-height: 435px;
+  transition: transform 0.2s;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.movie-card-img {
+  width: 90%;
+  border-radius: 15px;
+}
+
+.movie-card-title {
+  font-size: 1rem;
+  margin: 5px 0 0px 0;
+  text-align: center;
+  color: var(--dark);
+  text-decoration: none;
+  width: 100%;
+  padding: 2px;
+  border-radius: 10px;
+}

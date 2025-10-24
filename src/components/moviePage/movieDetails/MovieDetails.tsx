@@ -9,30 +9,20 @@ type MovieDetailsProps = {
 };
 
 const MovieDetails = ({movie}: MovieProps) => {
-  const title = movie.title
   const description = movie.overview
-  console.log("description:", description);
   const year = movie.release_date
   const genre = "à importer"
-  const actors = [ "à importer", "à importer"] // à importer
-  const director = movie.director
+  const actors = [] // à importer
   return (
     <div className="movie-details">
       <p>
-        <strong>Titre : {title} </strong> 
-        <br />
-        <br />
-        <strong>Réalisateur :</strong> {director || "Inconnu"}
-        <br />
-        <br />
-        <strong>Date de sortie :</strong> {year}
-        <br />
-        <br />
+        <strong>Année :</strong> {year}
+      </p>
+      <p>
         <strong>Genre :</strong> {genre}
       </p>
       <p className="movie-details-description">{description}</p>
-      <p >
-        <strong >Acteurs :</strong></p>
+      <h3>Acteurs :</h3>
       <ul>
         {actors.map((actor) => (
           <li key={actor.id} className="actor-item">
@@ -42,9 +32,6 @@ const MovieDetails = ({movie}: MovieProps) => {
           </li>
         ))}
       </ul>
-      <p>
-        <strong>Description :</strong> {description}
-      </p>
     </div>
   );
 };
